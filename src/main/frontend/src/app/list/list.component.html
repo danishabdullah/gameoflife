@@ -1,0 +1,22 @@
+<h3>
+    Previously Played Games
+</h3>
+<p>
+    Following are the games currently stored in our db.
+</p>
+<button (click)="gamesService.loadGames()" mat-fab>
+    <mat-icon class="material-icons">refresh</mat-icon>
+</button>
+<ul>
+    <li *ngFor="let game of gamesService.games">
+        <mat-card class="">
+            <mat-card-header>
+                <mat-card-title>ID: {{game.id}} - World Dimensions ({{game.game.worldX}},{{game.game.worldY}})</mat-card-title>
+                <mat-card-subtitle>{{game.game.history[0].living.size()}} cells were alive at the beginning:</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <pre>{{game.game.binaryInitialState()}}</pre>
+            </mat-card-content>
+        </mat-card>
+    </li>
+</ul>

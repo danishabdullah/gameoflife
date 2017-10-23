@@ -1,0 +1,10 @@
+server:
+    port: 8000
+
+spring:
+    datasource:
+        url: jdbc:h2:file:~/h2/gameoflife_db;DB_CLOSE_ON_EXIT=FALSE;MODE=POSTGRESQL
+        driverClassName: org.h2.Driver
+    jpa:
+        hibernate:
+            ddl-auto: update

@@ -1,0 +1,37 @@
+<h3>Play</h3>
+<p>A <a href="http://d3js.org/">D3.js</a> implementation of
+    <a href="http://en.wikipedia.org/wiki/Conway's_Game_of_Life">Conway's Game of Life</a>.
+    Click cells on the board to toggle them and between "alive" and "dead", and then hit
+    Start to run the game. Alternatively, hit Random to pre-populate the board.
+    Stop pauses the game, while Reset empties the board.
+</p>
+<div class="button-row">
+    <button value="play" (click)="animationStart()" mat-icon-button>
+        <mat-icon class="material-icons">play_arrow</mat-icon>
+    </button>
+    <button value="pause" (click)="animationStop()" mat-icon-button>
+        <mat-icon class="material-icons">pause</mat-icon>
+    </button>
+    <button value="reset" (click)="animationReset()" mat-icon-button>
+        <mat-icon class="material-icons">refresh</mat-icon>
+    </button>
+    <button value="randomize" (click)="randomizeAnimation()" mat-icon-button>
+        <mat-icon class="material-icons">shuffle</mat-icon>
+    </button>
+    <button value="randomize" (click)="saveWorld()" mat-icon-button>
+        <mat-icon class="material-icons">save</mat-icon>
+    </button>
+    <button mat-button> Step: {{gameService.currentGame.step}}</button>
+
+</div>
+<div id="grid"></div>
+
+<div id="bottom-panel">
+    <span class="label label-default" style="background-color: #5c768e"> Dead! </span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="label label-default" style="background-color: #afd581"> Living! </span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="label label-default" style="background-color: #92dbb7"> Newly Born! </span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="label label-default" style="background-color: #aa4539"> Dying from Over Population! </span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="label label-default" style="background-color: #78285d"> Dying from Under Population! </span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="label label-default" style="background-color: #9ddc96"> Willed into existence by User! </span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="label label-default" style="background-color: #89302e"> Killed by user! </span> &nbsp;&nbsp;&nbsp;&nbsp;
+</div>
