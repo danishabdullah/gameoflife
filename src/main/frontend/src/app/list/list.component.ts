@@ -21,7 +21,6 @@ export class ListComponent implements OnInit {
 
     constructor(private gameService: GameService, private gamesService: GamesService,
                 private router: Router, private snackbar: MatSnackBar){
-        gamesService.loadGames();
     }
 
     reload() {
@@ -33,18 +32,20 @@ export class ListComponent implements OnInit {
     }
 
     // select(id: number, game: Game) {
-    //     this.gameService.setGame(game, id);
-    //     this.router.navigateByUrl('/play').then( success =>
-    //             // this.transitionWorld()
+    //     this.router.navigateByUrl('/play').then( success => {
+    //         console.log("Setting the game to new game");
+    //         this.gameService.setGame(game, id);
+    //         this.transitionWorld();
+    //         }
     //     );
     // }
 
     ngOnInit() {
+        this.gamesService.loadGames();
     }
 
     // getCurrentStateData() {
-    //     let self = this;
-    //     return self.gameService.getCurrentStateData();
+    //     return this.self.gameService.getCurrentStateData();
     // }
     //
     // transitionWorld(){

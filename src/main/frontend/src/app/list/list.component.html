@@ -4,10 +4,12 @@
 <p>
     Following are the games currently stored in our db.
 </p>
-<button (click)="gamesService.loadGames()" mat-fab>
-    <mat-icon class="material-icons">refresh</mat-icon>
+<button (click)="gamesService.loadGames()" mat-raised-button color="primary">
+    Reload data
 </button>
-<ul>
+<br>
+<br>
+<ul style="list-style-type: none;padding: 0;margin: 0;">
     <li *ngFor="let game of gamesService.games">
         <mat-card class="">
             <mat-card-header>
@@ -17,6 +19,11 @@
             <mat-card-content>
                 <pre>{{game.game.binaryInitialState()}}</pre>
             </mat-card-content>
+        <!--<mat-card-actions>-->
+            <!--<button (click)="select(game.id, game.game)" mat-button>Play <mat-icon class="material-icons">play_arrow</mat-icon></button>-->
+        <!--</mat-card-actions>-->
         </mat-card>
     </li>
+    <br>
+    <br>
 </ul>

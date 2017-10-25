@@ -134,7 +134,7 @@ export class PlayComponent implements OnInit {
 
         try {
             let res = this.gameService.save();
-            let snackBar = this.snackBar.open('Game conditions saved to id: ' + res,
+            let snackBar = this.snackBar.open('Game conditions saved to the database',
                 '', snackbarConf);
         } catch (e) {
             console.log(`failed to save: ${e}`);

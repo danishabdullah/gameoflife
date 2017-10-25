@@ -13,8 +13,6 @@ export class GameService {
     currentGameId: number;
 
     constructor(private http: HttpClient) {
-        this.http = http;
-        this.currentGame = new Game(worldX, worldY);
     }
 
     makeGame(id: number, wX: number, wY: number, aliveCells: Set<Cell> = new Set<Cell>()) {
@@ -23,6 +21,9 @@ export class GameService {
     }
 
     getCurrentStateData() {
+        if (typeof (this.currentGame) === 'undefined'){
+            this.currentGame = new Game(worldX, worldY);
+        }
         let temp: Set<Cell> = new Set<Cell>();
         console.log(`drawing new state with ${this.currentGame.state['living'].size()} living ` +
             `and ${this.currentGame.state['dying'].size()} dying cells`);
