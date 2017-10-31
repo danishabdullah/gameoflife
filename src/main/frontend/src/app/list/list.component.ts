@@ -14,8 +14,7 @@ import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 @Component({
     selector: 'app-list',
     templateUrl: './list.component.html',
-    styleUrls: ['./list.component.css'],
-    providers: [GamesService, GameService]
+    styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
 
@@ -27,39 +26,20 @@ export class ListComponent implements OnInit {
         this.gamesService.loadGames();
         let snackbarConf = new MatSnackBarConfig();
         snackbarConf.duration = 2500;
-        let snackbarRef = this.snackbar.open('Game data has been loaded. :)',
+        let snackbarRef = this.snackbar.open('Game data has been loaded.)',
             '', snackbarConf);
     }
 
-    // select(id: number, game: Game) {
-    //     this.router.navigateByUrl('/play').then( success => {
-    //         console.log("Setting the game to new game");
-    //         this.gameService.setGame(game, id);
-    //         this.transitionWorld();
-    //         }
-    //     );
-    // }
+    select(id: number, game: Game) {
+        this.router.navigateByUrl('/play').then( success => {
+            console.log("Setting the game to new game");
+            this.gameService.setGame(game, id);
+            }
+        );
+    }
 
     ngOnInit() {
         this.gamesService.loadGames();
     }
-
-    // getCurrentStateData() {
-    //     return this.self.gameService.getCurrentStateData();
-    // }
-    //
-    // transitionWorld(){
-    //     let WORLD = d3.select('#grid');
-    //
-    //     WORLD
-    //         .data(this.getCurrentStateData(),
-    //             (d: Cell) => d.toString())
-    //         .transition()
-    //         .delay(TRANSITION_TIME * 0.1)
-    //         .duration(TRANSITION_TIME * 0.9)
-    //         .attr('fill', function (d: Cell) {
-    //             return getColour(d.state);
-    //         });
-    // }
 
 }

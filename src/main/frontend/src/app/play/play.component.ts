@@ -16,7 +16,7 @@ import {GameService} from "../Shared/services/game";
     selector: 'app-play',
     templateUrl: './play.component.html',
     styleUrls: ['./play.component.css'],
-    providers: [GameService, MatSnackBar]
+    providers: [MatSnackBar]
 })
 export class PlayComponent implements OnInit {
     CONTROL = 0;
@@ -26,10 +26,6 @@ export class PlayComponent implements OnInit {
     constructor(private gameService: GameService, private snackBar: MatSnackBar) {
     }
 
-    getCurrentStateData() {
-        let self = this;
-        return self.gameService.getCurrentStateData();
-    }
 
     animationStart() {
         if (this.CONTROL === 0) {
@@ -55,7 +51,7 @@ export class PlayComponent implements OnInit {
                 self.CONTROL = 0;
             }
             self.WORLD
-                .data(self.getCurrentStateData(),
+                .data(self.gameService.getCurrentStateData(),
                     (d: Cell) => d.toString())
                 .transition()
                 .delay(TRANSITION_TIME * 0.1)
@@ -78,7 +74,7 @@ export class PlayComponent implements OnInit {
         }
         this.gameService.currentGame.reset();
         this.WORLD
-            .data(this.getCurrentStateData(),
+            .data(this.gameService.getCurrentStateData(),
                 (d: Cell) => d.toString())
             .transition()
             .delay(0)
@@ -111,7 +107,7 @@ export class PlayComponent implements OnInit {
         this.gameService.currentGame.reset();
         this.gameService.currentGame.randomizeInitState();
         this.WORLD
-            .data(this.getCurrentStateData(),
+            .data(this.gameService.getCurrentStateData(),
                 (d: Cell) => d.toString())
             .transition()
             .delay(TRANSITION_TIME * 0.1)
@@ -174,7 +170,7 @@ export class PlayComponent implements OnInit {
                 }); // mainly for debugging
 
         };
-        let world = group.selectAll('cells').data(this.getCurrentStateData(),
+        let world = group.selectAll('cells').data(this.gameService.getCurrentStateData(),
             (d: Cell) => d.toString()).enter().append('rect').call(cellFactory);
         this.WORLD = world;
         let self = this;

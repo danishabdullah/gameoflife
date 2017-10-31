@@ -85,4 +85,5 @@ export class GameService {
         this.currentGameId = id;
         this.getCurrentStateData();
     }
+
 }
