@@ -2,11 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GamesService} from "../Shared/services/games";
 import {GameService} from "../Shared/services/game";
 import {Game} from "../Shared/models/Game";
-import {TRANSITION_TIME, worldX, worldY} from "../Shared/consts";
 import {Router} from "@angular/router";
-import {Cell} from "../Shared/models/Cell";
-import {getColour} from "../Shared/funcs";
-import * as d3 from 'd3';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 
 

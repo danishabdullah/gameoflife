@@ -6,7 +6,7 @@ import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {Cell} from "../Shared/models/Cell";
 import {getColour} from "../Shared/funcs";
 import {
-    strokeColour, userBirthColour, userKillColour, windowX, worldX, worldY, xCellWidth,
+    strokeColour, userBirthColour, userKillColour, windowX, xCellWidth,
     yCellWidth, windowY, TRANSITION_TIME
 } from "../Shared/consts";
 import {GameService} from "../Shared/services/game";
